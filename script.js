@@ -4,34 +4,36 @@ document.addEventListener("DOMContentLoaded", function() {
   const tarefaLista = document.getElementById("tarefaLista");
   const delSelecaoBotao = document.getElementById("delSelecao");
 
-    //adicionar nova tarefa;
   function addTarefa() {
     const tarefaText = tarefaInput.value.trim();
-    if (!tarefaText) return;
+    if (!tarefaText) {
+      alert("Por favor, digite uma tarefa!");
+      return;
+    }
 
     const li = document.createElement("li");
-
-    //caixa de check para seleção;
-    const checkbox = document.
+    
+    // Checkbox
+    const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.className = "checkbox";
 
-    // texto da tarefa;
+    // Texto da tarefa
     const span = document.createElement("span");
     span.textContent = tarefaText;
 
-    // botão de excluir individualmente;
+    // Botão de excluir
     const delBotao = document.createElement("button");
     delBotao.textContent = "Excluir";
     delBotao.className = "delBotao";
     delBotao.addEventListener("click", () => li.remove());
 
-    // marcar tarefa como concluída;
+    // Marcar como concluída
     checkbox.addEventListener("change", function() {
       span.classList.toggle("completed", this.checked);
     });
 
-    // montagem do li;
+    // Montagem do item
     li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(delBotao);
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     tarefaInput.value = "";
   }
 
-  // excluir tarefas selecionadas;
+  // Excluir selecionados
   delSelecaoBotao.addEventListener("click", function() {
     const checkboxes = document.querySelectorAll(".checkbox:checked");
     checkboxes.forEach(checkbox => {
@@ -48,8 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  // Adicionar com Enter
   tarefaInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") addTarefa();
   });
 
+  // Adicionar com botão
+  addBotao.addEventListener("click", addTarefa);
 });
