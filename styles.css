@@ -11,5 +11,24 @@ li {
 .checkbox {
   width: 18px;
   height: 18px;
-  cursos: pointer;
+  cursor: pointer;
+}
+
+.delBotao {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#delSelecao {
+  background: #ff4444;
+  margin-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
 }
