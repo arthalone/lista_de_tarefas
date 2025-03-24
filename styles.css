@@ -1,0 +1,15 @@
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursos: pointer;
+}
